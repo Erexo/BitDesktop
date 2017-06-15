@@ -26,7 +26,7 @@ namespace BitDesktop
 
             _updateBtcValueTimer = new DispatcherTimer();
             _updateBtcValueTimer.Tick += UpdateBtcValue;
-            _updateBtcValueTimer.Interval = new TimeSpan(0, 0, 3);
+            _updateBtcValueTimer.Interval = new TimeSpan(0, 2, 0);
             _updateBtcValueTimer.Start();
             UpdateBtcValue(null, null);
             InitializeComponent();
