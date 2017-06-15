@@ -1,0 +1,20 @@
+﻿<Window x:Name="window" x:Class="BitDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BitDesktop"
+        mc:Ignorable="d"
+        Title="BitDesktop" Height="76" Width="147" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Loaded="window_Loaded" ShowInTaskbar="False">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+    <Grid Margin="0,0,10,10" MouseDown="MoveForm" MouseEnter="ShowOptions" MouseLeave="HideOptions">
+        <Rectangle x:Name="rectBox" HorizontalAlignment="Left" Height="65" Stroke="Black" VerticalAlignment="Top" Width="135" Margin="7,5,-5,-4" Fill="#02000000"/>
+        <Label x:Name="lblBtcPrice" Content="$- ---" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" FontFamily="OCR A Extended" Margin="31,6,0,0"/>
+        <Label x:Name="lblBtcEarn" Content="+$- ---" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" FontFamily="OCR A Extended" Margin="17,33,0,-2"/>
+        <Image x:Name="imgOptions" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="47" Source="Images/options.png" Margin="-3,2,0,0" MouseLeftButtonDown="OpenOptions" Loaded="imgOptions_Loaded"/>
+        <Image x:Name="imgExit" HorizontalAlignment="Left" Height="15" VerticalAlignment="Top" Width="15" Source="Images/exit.png" Margin="127,5,-5,0" MouseLeftButtonDown="CloseApplication" Loaded="imgExit_Loaded"/>
+
+    </Grid>
+</Window>
