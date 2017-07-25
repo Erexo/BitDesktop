@@ -22,7 +22,6 @@ namespace BitDesktop
         public MainWindow()
         {
             _client = new WebClient();
-            _optionsForm = new OptionsForm(this);
 
             _updateBtcValueTimer = new DispatcherTimer();
             _updateBtcValueTimer.Tick += UpdateBtcValue;
@@ -65,7 +64,10 @@ namespace BitDesktop
         }
 
         private void OpenOptions(object sender, MouseButtonEventArgs e)
-            => _optionsForm.Show();
+        {
+            _optionsForm = new OptionsForm(this);
+            _optionsForm.Show();
+        }
 
         private void CloseApplication(object sender, MouseButtonEventArgs e)
             => this.Close();
