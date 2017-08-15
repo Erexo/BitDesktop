@@ -22,6 +22,7 @@ namespace BitDesktop
             txtAmount.Text = Settings.Default.BtcAmount.ToString();
             txtPrice.Text = Settings.Default.BtcPrice.ToString();
             txtFixed.Text = Settings.Default.BtcFixed.ToString();
+            cmbSource.Text = Settings.Default.BtcProvider;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace BitDesktop
             txtPrice.Text = txtPrice.Text.Split(',')[0];
             Settings.Default.BtcPrice =  int.Parse(txtPrice.Text);
             Settings.Default.BtcFixed = double.Parse(txtFixed.Text);
+            Settings.Default.BtcProvider = cmbSource.Text;
             Settings.Default.Save();
             setStartup(Settings.Default.Autorun);
             _mainWindow.UpdateBtcValue(null, null);

@@ -23,5 +23,8 @@
     <Setting Name="Lock" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="BtcProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BTC-E</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

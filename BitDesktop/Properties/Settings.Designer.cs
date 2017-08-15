@@ -106,5 +106,17 @@ namespace BitDesktop.Properties {
                 this["Lock"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BTC-E")]
+        public string BtcProvider {
+            get {
+                return ((string)(this["BtcProvider"]));
+            }
+            set {
+                this["BtcProvider"] = value;
+            }
+        }
     }
 }

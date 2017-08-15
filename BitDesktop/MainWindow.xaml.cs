@@ -1,6 +1,7 @@
 ﻿using BitDesktop.Properties;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 using System.Windows.Input;
@@ -14,14 +15,12 @@ namespace BitDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        private WebClient _client;
         private OptionsForm _optionsForm;
         private int _currBtcPrice { get; set; }
         private DispatcherTimer _updateBtcValueTimer;
 
         public MainWindow()
         {
-            _client = new WebClient();
 
             _updateBtcValueTimer = new DispatcherTimer();
             _updateBtcValueTimer.Tick += UpdateBtcValue;
@@ -112,13 +111,9 @@ namespace BitDesktop
         {
             try
             {
-                var result = await _client.DownloadStringTaskAsync(new Uri("https://btc-e.com/api/3/ticker/btc_usd"));
-                dynamic data = JsonConvert.DeserializeObject(result);
-                _currBtcPrice = (int)data.btc_usd.avg;
+                _currBtcPrice = await BtcDataFactory.GetBtcPrice(Settings.Default.BtcProvider);
                 lblBtcPrice.Content = $"${String.Format("{0:##,###}", _currBtcPrice)}";
-
                 setRevenues();
-
                 rectBox.Stroke = Brushes.Black;
             }
             catch (WebException)
@@ -129,7 +124,6 @@ namespace BitDesktop
             {
                 rectBox.Stroke = Brushes.Red;
             }
-
         }
     }
 }

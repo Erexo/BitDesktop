@@ -146,8 +146,10 @@
             // 
             this.cmbSource.AutoCompleteCustomSource.AddRange(new string[] {
             "BTC-E"});
-            this.cmbSource.Enabled = false;
             this.cmbSource.FormattingEnabled = true;
+            this.cmbSource.Items.AddRange(new object[] {
+            "BTC-E",
+            "Bitbay"});
             this.cmbSource.Location = new System.Drawing.Point(81, 165);
             this.cmbSource.Name = "cmbSource";
             this.cmbSource.Size = new System.Drawing.Size(97, 21);
